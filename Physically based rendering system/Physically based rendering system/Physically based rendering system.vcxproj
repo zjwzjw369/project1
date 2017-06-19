@@ -18,6 +18,18 @@
       <Platform>x64</Platform>
     </ProjectConfiguration>
   </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="core\geometry.h" />
+    <ClInclude Include="core\pbrs.h" />
+    <ClInclude Include="core\ports.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="core\geometry.cpp" />
+    <ClCompile Include="core\main.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="ClassDiagram.cd" />
+  </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{7BF97658-BEE6-4E11-ACED-ADA512E0026E}</ProjectGuid>
     <RootNamespace>Physicallybasedrenderingsystem</RootNamespace>
@@ -109,9 +121,6 @@
       <OptimizeReferences>true</OptimizeReferences>
     </Link>
   </ItemDefinitionGroup>
-  <ItemGroup>
-    <ClInclude Include="geometry.h" />
-  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>
