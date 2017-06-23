@@ -10,12 +10,13 @@
 #include <assert.h>
 
 namespace pbrs{
-	
-	inline float Clamp(float x, float low = 0, float high = 1) {
+	typedef double Float;
+	static Float Pi = 3.14159265358979323846;
+	inline Float Clamp(Float x, Float low = 0, Float high = 1) {
 		return (x < high) ? ((x > low) ? x : low) : high;
 	}
-	const float INF = std::numeric_limits<float>::infinity();
-
+	const Float INF = std::numeric_limits<Float>::infinity();
+	inline Float Radians(Float deg) { return (Pi / 180)*deg; }
 }// namespace pbrs
 
 

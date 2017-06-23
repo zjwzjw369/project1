@@ -224,19 +224,19 @@ namespace pbrs {
 			T raw[3];
 		};
 	};//class Vector
-	typedef Vector3<float> Vector3f;
+	typedef Vector3<Float> Vector3f;
 	typedef Vector3<int> Vector3i;
 
 
 	class Ray{
 	public:
 		Ray() :tMax(INF), time(0.0f) {}
-		Ray(const Vector3f &o, const Vector3f &d, float tMax = INF, float time = 0.0f) :o(0), d(d), tMax(tMax), time(time) {}
-		inline Vector3f getPoint(const float t) const { return o + t*d; }
-		Vector3f operator()(float t) const { return o + t*d; }
+		Ray(const Vector3f &o, const Vector3f &d, Float tMax = INF, Float time = 0.0f) :o(0), d(d), tMax(tMax), time(time) {}
+		inline Vector3f getPoint(const Float t) const { return o + t*d; }
+		Vector3f operator()(Float t) const { return o + t*d; }
 		Vector3f o,d;
-		mutable float tMax;
-		float time;
+		mutable Float tMax;
+		Float time;
 		//const Medium *medium;
 	};//class ray
 
@@ -287,12 +287,13 @@ namespace pbrs {
 			if (pMax.z > pMin.z) o.z /= pMax.z - pMin.z;
 			return o;
 		}
-		void BoundingSphere(Vector3<T> *center,float *radius) const{
+		void BoundingSphere(Vector3<T> *center,Float *radius) const{
 			*center = (pMin + pMax) / 2;
 			*radius = Inside(*center, *this) ? (pMax - *center).Norm2() : 0;
 		}
 		Vector3<T> pMin, pMax;
 	};//class Bounds
+
 	template<typename T> 
 	Bounds3<T> Union(const Bounds3<T> &b, const Vector3<T> & p) {
 		return Bounds3<T>(Point3<T>(std::min(b.pMin.x, p.x), std::min(b.pMin.y, p.y), std::min(b.pMin.z, p.z)),
@@ -328,7 +329,7 @@ namespace pbrs {
 		return Bounds3<T>(b.pMin - Vector3<T>(delta, delta, delta), b.pMax + Vector3<T>(delta, delta, delta))
 	}
 
-	typedef Bounds3<float> Bounds3f;
+	typedef Bounds3<Float> Bounds3f;
 	typedef Bounds3<int> Bounds3i;
 
 }// namespace pbrs

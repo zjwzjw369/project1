@@ -24,12 +24,18 @@
     <ClInclude Include="core\pbrs.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="core\transform.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="core\main.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="core\geometry.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="core\transform.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>
