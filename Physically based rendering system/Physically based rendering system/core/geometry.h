@@ -226,6 +226,12 @@ namespace pbrs {
 	};//class Vector
 	typedef Vector3<Float> Vector3f;
 	typedef Vector3<int> Vector3i;
+	
+	template<typename T>
+	class Point:public Vector3<T>{
+	public:
+
+	};
 
 
 	class Ray{
@@ -293,6 +299,15 @@ namespace pbrs {
 		}
 		Vector3<T> pMin, pMax;
 	};//class Bounds
+	template<typename T>
+	Vector3<T> Normalize(const Vector3<T> &v) {
+		const T a = 1 / v.Norm2();
+		T x = v.x*a;
+		T y = v.y*a;
+		T z = v.z*a;
+		return Vector3<T>(x,y,z);
+	}
+
 
 	template<typename T> 
 	Bounds3<T> Union(const Bounds3<T> &b, const Vector3<T> & p) {

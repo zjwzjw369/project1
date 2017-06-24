@@ -18,7 +18,7 @@ int main() {
 	Matrix4x4 m;
 	Transform t(f);
 	std::cout << t.HasScale() << std::endl;
-	std::cout <<m<<" "<<f[1][2];
+	std::cout <<m<<" "<<t(Vector3f(1.0,2.0,3.0));
 	system("pause");
 	return 0;
 }

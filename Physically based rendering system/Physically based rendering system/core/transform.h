@@ -98,16 +98,23 @@ namespace pbrs {
 		}
 
 		template <typename T>
-		inline Vector3<T> operator()(const Vector3<T> &p) const {
+		inline Vector3<T> operator()(const Point<T> &p) const {
 			T x = p.x, y = p.y, z = p.z;
 			T xp = m.m[0][0] * x + m.m[0][1] * y + m.m[0][2] * z + m.m[0][3];
 			T yp = m.m[1][0] * x + m.m[1][1] * y + m.m[1][2] * z + m.m[1][3];
 			T zp = m.m[2][0] * x + m.m[2][1] * y + m.m[2][2] * z + m.m[2][3];
 			T wp = m.m[3][0] * x + m.m[3][1] * y + m.m[3][2] * z + m.m[3][3];
-			if (wp == 1 || wp == 0)//当p为向量时 wp等于0
+			if (wp == 1)//当p为向量时 wp等于0
 				return Vector3<T>(xp, yp, zp);
 			else
 				return Vector3<T>(xp, yp, zp) / wp;
+		}
+		template <typename T>
+		inline Vector3<T> operator()(const Vector3<T> &v) const {
+			T x = v.x, y = v.y, z = v.z;
+			return Vector3<T>(m.m[0][0] * x + m.m[0][1] * y + m.m[0][2] * z,
+				m.m[1][0] * x + m.m[1][1] * y + m.m[1][2] * z,
+				m.m[2][0] * x + m.m[2][1] * y + m.m[2][2] * z);
 		}
 
 		bool HasScale() const {
@@ -134,7 +141,9 @@ namespace pbrs {
 	Transform translate(const Vector3f &delta);
 	Transform Scale(Float x, Float y, Float z);
 	Transform RotateX(Float theta);
-
+	Transform RotateY(Float theta);
+	Transform RotateZ(Float theta);
+	Transform LookAt(const Vector3f &pos, const Vector3f &look, const Vector3f &up);
 }
 
 
