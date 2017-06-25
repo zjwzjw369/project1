@@ -98,16 +98,16 @@ namespace pbrs {
 		}
 
 		template <typename T>
-		inline Vector3<T> operator()(const Point<T> &p) const {
+		inline Point3<T> operator()(const Point3<T> &p) const {
 			T x = p.x, y = p.y, z = p.z;
 			T xp = m.m[0][0] * x + m.m[0][1] * y + m.m[0][2] * z + m.m[0][3];
 			T yp = m.m[1][0] * x + m.m[1][1] * y + m.m[1][2] * z + m.m[1][3];
 			T zp = m.m[2][0] * x + m.m[2][1] * y + m.m[2][2] * z + m.m[2][3];
 			T wp = m.m[3][0] * x + m.m[3][1] * y + m.m[3][2] * z + m.m[3][3];
 			if (wp == 1)//当p为向量时 wp等于0
-				return Vector3<T>(xp, yp, zp);
+				return Point3<T>(xp, yp, zp);
 			else
-				return Vector3<T>(xp, yp, zp) / wp;
+				return Point3<T>(xp, yp, zp) / wp;
 		}
 		template <typename T>
 		inline Vector3<T> operator()(const Vector3<T> &v) const {
@@ -116,11 +116,18 @@ namespace pbrs {
 				m.m[1][0] * x + m.m[1][1] * y + m.m[1][2] * z,
 				m.m[2][0] * x + m.m[2][1] * y + m.m[2][2] * z);
 		}
+		template <typename T> 
+		inline Normal3<T> operator()(const Normal3<T> &n) const {
+			T x = n.x, y = n.y, z = n.z;
+			return Normal3<T>(mInv.m[0][0] * x + mInv.m[1][0] * y + mInv.m[2][0] * z,
+				mInv.m[0][1] * x + mInv.m[1][1] * y + mInv.m[2][1] * z,
+				mInv.m[0][2] * x + mInv.m[1][2] * y + mInv.m[2][2] * z);
+		}
 
 		bool HasScale() const {
-			Float la2 = (*this)(Vector3f(1, 0, 0)).Norm2_squared();
-			Float lb2 = (*this)(Vector3f(0, 1, 0)).Norm2_squared();
-			Float lc2 = (*this)(Vector3f(0, 0, 1)).Norm2_squared();
+			Float la2 = (*this)(Vector3f(1, 0, 0)).LengthSquared();
+			Float lb2 = (*this)(Vector3f(0, 1, 0)).LengthSquared();
+			Float lc2 = (*this)(Vector3f(0, 0, 1)).LengthSquared();
 #define NOT_ONE(x) ((x) < .999f || (x) > 1.001f)
 			return (NOT_ONE(la2) || NOT_ONE(lb2) || NOT_ONE(lc2));
 #undef NOT_ONE

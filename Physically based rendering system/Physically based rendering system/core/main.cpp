@@ -3,9 +3,9 @@
 using namespace pbrs;
 
 int main() {
-	Ray r(Vector3f(0.0, 0.0, 0.0), Vector3f(1.0, 0.0, 0.0));
-	Bounds3f b(Vector3f(1.0, 1.0, 3.0), Vector3f(-1.0, -2.0, -3.0));
-	Vector3f center;
+	Ray r(Point3f(0.0, 0.0, 0.0), Point3f(1.0, 0.0, 0.0));
+	Bounds3f b(Point3f(1.0, 1.0, 3.0), Point3f(-1.0, -2.0, -3.0));
+	Point3f center;
 	Float rid;
 	b.BoundingSphere(&center, &rid);
 	Float f[4][4];
@@ -14,7 +14,11 @@ int main() {
 	f[1][1] = 1;
 	f[2][2] = 1;
 	f[3][3] = 1;
-	
+	Point3<Float> p;
+	Point3f p222;
+	Normal3f n(1.0, 1.0, 1.0);
+	Vector3f v(2.0, 2.0, 2.0);
+	Faceforward(n, v);
 	Matrix4x4 m;
 	Transform t(f);
 	std::cout << t.HasScale() << std::endl;

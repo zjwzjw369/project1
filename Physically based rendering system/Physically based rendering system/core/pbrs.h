@@ -10,6 +10,12 @@
 #include <assert.h>
 
 namespace pbrs{
+	template<typename T>
+	class Vector3;
+	template<typename T>
+	class Point3;
+	template<typename T>
+	class Normal3;
 	typedef double Float;
 	static Float Pi = 3.14159265358979323846;
 	inline Float Clamp(Float x, Float low = 0, Float high = 1) {

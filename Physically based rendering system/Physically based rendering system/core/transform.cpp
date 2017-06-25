@@ -159,7 +159,7 @@ namespace pbrs {
 		m.m[2][3] = 0;
 		return Transform(m, Transpose(m));
 	}
-	Transform LookAt(const Vector3f &pos, const Vector3f &look,const Vector3f &up) {
+	Transform LookAt(const Point3f &pos, const Point3f &look,const Vector3f &up) {
 		Matrix4x4 cameraToWorld;
 		cameraToWorld.m[0][3] = pos.x;
 		cameraToWorld.m[1][3] = pos.y;
