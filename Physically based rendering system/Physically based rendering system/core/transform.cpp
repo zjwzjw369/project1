@@ -1,4 +1,5 @@
 #include "transform.h"
+#include "interaction.h"
 
 namespace pbrs {
 	Matrix4x4::Matrix4x4(Float mat[4][4]) { memcpy(m, mat, 16 * sizeof(Float)); }
@@ -181,5 +182,11 @@ namespace pbrs {
 		cameraToWorld.m[2][2] = dir.z;
 		cameraToWorld.m[3][2] = 0.;
 		return Transform(Inverse(cameraToWorld), cameraToWorld);
+	}
+	SurfaceInteraction Transform::operator()(const SurfaceInteraction &si) const {
+		SurfaceInteraction ret;
+		//	Transform p and pError in SurfaceInteraction 229
+		//	Transform remaining members of SurfaceInteraction
+		return ret;
 	}
 }

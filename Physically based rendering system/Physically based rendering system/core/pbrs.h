@@ -10,6 +10,7 @@
 #include <assert.h>
 #define MachineEpsilon (std::numeric_limits<Float>::epsilon() * 0.5)
 namespace pbrs{
+	class Shape;
 	template<typename T>
 	class Vector3;
 	template<typename T>
@@ -24,6 +25,7 @@ namespace pbrs{
 	inline Float gamma(int n) {
 		return (n * MachineEpsilon) / (1 - n * MachineEpsilon);
 	}
+	class SurfaceInteraction;
 	const Float INF = std::numeric_limits<Float>::infinity();
 	inline Float Radians(Float deg) { return (Pi / 180)*deg; }
 }// namespace pbrs

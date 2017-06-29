@@ -3,6 +3,8 @@
 using namespace pbrs;
 
 int main() {
+	//Interaction i;
+	//std::cout << i.p<<std::endl;
 	Ray r(Point3f(0.0, 0.0, 0.0), Vector3f(1.0, 0.0, 0.0));
 	Bounds3f b(Point3f(1.0, 1.0, 3.0), Point3f(-1.0, -2.0, -3.0));
 	Point3f center;

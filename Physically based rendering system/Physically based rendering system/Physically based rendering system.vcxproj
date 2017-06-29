@@ -20,12 +20,14 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="core\geometry.h" />
+    <ClInclude Include="core\interaction.h" />
     <ClInclude Include="core\pbrs.h" />
     <ClInclude Include="core\ports.h" />
     <ClInclude Include="core\transform.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="core\geometry.cpp" />
+    <ClCompile Include="core\interaction.cpp" />
     <ClCompile Include="core\main.cpp" />
     <ClCompile Include="core\transform.cpp" />
   </ItemGroup>

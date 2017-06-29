@@ -1,6 +1,6 @@
 #pragma once
-#ifndef PBRS_CORE_GEOMETRY
-#define PBRS_CORE_GEOMETRY
+#ifndef PBRS_CORE_GEOMETRY_H
+#define PBRS_CORE_GEOMETRY_H
 
 #include "pbrs.h"
 namespace pbrs {
@@ -377,11 +377,129 @@ namespace pbrs {
 	typedef Point3<Float> Point3f;
 	typedef Point3<int> Point3i;
 
+	template<typename T>
+	class Point2 {
+	public:
+		Point2(T a = 0) : x(a), y(a) {}
+		Point2(T x, T y) : x(x), y(y) {}
+		Point2(const Point2<T> &p) : x(p.x), y(p.y) {}
+		inline bool HasNaNs() const {
+			return std::isnan(x) || isnan(y) ;
+		}
+		//Point2<T> operator+(const Vector3<T> &v) const {
+		//	return Point2<T>(x + v.x, y + v.y);
+		//}
+		//Point2<T> &operator+=(const Vector3<T> &v) {
+		//	x += v.x;
+		//	y += v.y;
+		//	return *this;
+		//}
+		bool operator==(const Point2<T> &p) const {
+			return x == p.x && y == p.y ;
+		}
+		bool operator!=(const Point2<T> &p) const {
+			return x != p.x || y != p.y ;
+		}
+		Point2<T> operator-() const { return Point2<T>(-x, -y); }
+		Vector3<T> operator-(const Point2<T> &p) const {
+			return Vector3<T>(x - p.x, y - p.y);
+		}
+		//Point2<T> operator-(const Vector3<T> &v) const {
+	//		return Point2<T>(x - v.x, y - v.y);
+	//	}
+	//	Point2<T> &operator-=(const Vector3<T> &v) {
+	//		x -= v.x;
+	//		y -= v.y;
+	//		return *this;
+	//	}
+		Point2<T> &operator+=(const Point2<T> &p) {
+			x += p.x;
+			y += p.y;
+			return *this;
+		}
+		Point2<T> operator+(const Point2<T> &p) const {
+			return Point2<T>(x + p.x, y + p.y);
+		}
+		template <typename U>
+		Point2<T> operator*(U f) const {
+			return Point2<T>(f * x, f * y);
+		}
+		template <typename U>
+		Point2<T> &operator*=(U f) {
+			x *= f;
+			y *= f;
+			return *this;
+		}
+		template <typename U>
+		Point2<T> operator/(U f) const {
+			Float inv = (Float)1 / f;
+			return Point2<T>(inv * x, inv * y);
+		}
+		template <typename U>
+		Point2<T> &operator/=(U f) {
+			Float inv = (Float)1 / f;
+			x *= inv;
+			y *= inv;
+			return *this;
+		}
+		friend inline std::ostream &operator<<(std::ostream& os, const Point2<T> &v) {
+			os << '[' << v.x << ' ' << v.y << ']';
+			return os;
+		}
+		union {
+			struct {
+				T x, y;
+			};
+			T raw[2];
+		};
+	};//class point
+
+	typedef Point2<Float> Point2f;
+	typedef Point2<int> Point2i;
+
+	template <typename T>
+	inline Float Distance(const Point2<T> &p1, const Point2<T> &p2) {
+		return (p1 - p2).Length();
+	}
+	template <typename T>
+	inline Float DistanceSquared(const Point2<T> &p1, const Point2<T> &p2) {
+		return (p1 - p2).LengthSquared();
+	}
+	template <typename T>
+	Point2<T> Lerp(Float t, const Point2<T> &p0, const Point2<T> &p1) {
+		return (1 - t) * p0 + t * p1;
+	}
+	template <typename T>
+	Point2<T> Min(const Point2<T> &p1, const Point2<T> &p2) {
+		return Point2<T>(std::min(p1.x, p2.x), std::min(p1.y, p2.y));
+	}
+	template <typename T, typename U>
+	inline Point2<T> operator*(U f, const Point2<T> &p) {
+		return p * f;
+	}
+	template <typename T>
+	Point2<T> Max(const Point2<T> &p1, const Point2<T> &p2) {
+		return Point2<T>(std::max(p1.x, p2.x), std::max(p1.y, p2.y));
+	}
+
+	template <typename T> Point2<T> Floor(const Point2<T> &p) {
+		return Point2<T>(std::floor(p.x), std::floor(p.y));
+	}
+	template <typename T> Point2<T> Ceil(const Point2<T> &p) {
+		return Point2<T>(std::ceil(p.x), std::ceil(p.y));
+	}
+	template <typename T> Point2<T> Abs(const Point2<T> &p) {
+		return Point2<T>(std::abs(p.x), std::abs(p.y));
+	}
+	template<typename T>
+	Point2<T> Permute(const Point2<T> &p, int x, int y) {
+		return Point2<T>(p[x], p[y]);
+	}
+
 	template< typename T> 
 	class Normal3
 	{
 	public:
-		Normal3();
 		Normal3(T a = 0) : x(a), y(a), z(a) {}
 		Normal3(T x, T y, T z) : x(x), y(y), z(z) {}
 		Normal3(const Normal3<T> &n) : x(n.x), y(n.y), z(n.z) {}
@@ -655,4 +773,4 @@ namespace pbrs {
 
 }// namespace pbrs
 
-#endif // !PBRS_CORE_GEOMETRY
+#endif // !PBRS_CORE_GEOMETRY_H

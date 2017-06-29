@@ -172,6 +172,8 @@ namespace pbrs {
 			ret = Union(ret, M(Point3f(b.pMax.x, b.pMax.y, b.pMax.z)));
 			return ret;
 		}
+		
+		SurfaceInteraction operator()(const SurfaceInteraction &si) const;
 		bool IsIdentity() const {
 			return (m.m[0][0] == 1.f && m.m[0][1] == 0.f && m.m[0][2] == 0.f &&
 				m.m[0][3] == 0.f && m.m[1][0] == 0.f && m.m[1][1] == 1.f &&
@@ -185,6 +187,12 @@ namespace pbrs {
 		Transform operator*(const Transform &t2) const {
 			return Transform(Matrix4x4::Mul(m, t2.m),
 				Matrix4x4::Mul(t2.mInv, mInv));
+		}
+		bool SwapHandedness() const {
+			Float det= m.m[0][0] * (m.m[1][1] * m.m[2][2] - m.m[1][2] * m.m[2][1]) -
+				m.m[0][1] * (m.m[1][0] * m.m[2][2] - m.m[1][2] * m.m[2][0]) +
+				m.m[0][2] * (m.m[1][0] * m.m[2][1] - m.m[1][1] * m.m[2][0]);
+			return det < 0;
 		}
 	private:
 		Matrix4x4 m, mInv;
