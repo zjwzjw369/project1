@@ -8,7 +8,7 @@
 #include <cmath>
 #include <iostream>
 #include <assert.h>
-
+#define MachineEpsilon (std::numeric_limits<Float>::epsilon() * 0.5)
 namespace pbrs{
 	template<typename T>
 	class Vector3;
@@ -20,6 +20,9 @@ namespace pbrs{
 	static Float Pi = 3.14159265358979323846;
 	inline Float Clamp(Float x, Float low = 0, Float high = 1) {
 		return (x < high) ? ((x > low) ? x : low) : high;
+	}
+	inline Float gamma(int n) {
+		return (n * MachineEpsilon) / (1 - n * MachineEpsilon);
 	}
 	const Float INF = std::numeric_limits<Float>::infinity();
 	inline Float Radians(Float deg) { return (Pi / 180)*deg; }

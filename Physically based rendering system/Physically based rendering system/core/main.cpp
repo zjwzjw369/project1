@@ -3,7 +3,7 @@
 using namespace pbrs;
 
 int main() {
-	Ray r(Point3f(0.0, 0.0, 0.0), Point3f(1.0, 0.0, 0.0));
+	Ray r(Point3f(0.0, 0.0, 0.0), Vector3f(1.0, 0.0, 0.0));
 	Bounds3f b(Point3f(1.0, 1.0, 3.0), Point3f(-1.0, -2.0, -3.0));
 	Point3f center;
 	Float rid;
@@ -21,6 +21,7 @@ int main() {
 	Faceforward(n, v);
 	Matrix4x4 m;
 	Transform t(f);
+	
 	std::cout << t.HasScale() << std::endl;
 	std::cout <<m<<" "<<t(Vector3f(1.0,2.0,3.0));
 	system("pause");

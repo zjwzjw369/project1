@@ -523,10 +523,11 @@ namespace pbrs {
 	class Ray{
 	public:
 		Ray() :tMax(INF), time(0.0f) {}
-		Ray(const Point3f &o, const Point3f &d, Float tMax = INF, Float time = 0.0f) :o(0), d(d), tMax(tMax), time(time) {}
+		Ray(const Point3f &o, const Vector3f &d, Float tMax = INF, Float time = 0.0f) :o(0), d(d), tMax(tMax), time(time) {}
 		inline Point3f getPoint(const Float t) const { return o + t*d; }
 		Point3f operator()(Float t) const { return o + t*d; }
-		Point3f o,d;
+		Point3f o;
+		Vector3f d;
 		mutable Float tMax;
 		Float time;
 		//const Medium *medium;
