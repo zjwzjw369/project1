@@ -30,6 +30,12 @@
     <ClInclude Include="core\interaction.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="core\shape.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="shapes\sphere.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="core\main.cpp">
@@ -42,6 +48,12 @@
       <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="core\interaction.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="core\shape.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="shapes\sphere.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>

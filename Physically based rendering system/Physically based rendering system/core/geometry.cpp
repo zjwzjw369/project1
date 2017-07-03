@@ -1,5 +1,5 @@
-//#include "geometry.h"
+#include "geometry.h"
 
-//namespace pbrs {
+namespace pbrs {
 
-//}
+}

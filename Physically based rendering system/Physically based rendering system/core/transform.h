@@ -152,6 +152,36 @@ namespace pbrs {
 			//<Offset ray origin to edge of error bounds and compute tMax 233 >
 			return Ray(o, d, r.tMax, r.time);
 		}
+		template <typename T>
+		inline Vector3<T> operator()(const Vector3<T> &v,
+			Vector3<T> *absError) const {
+			T x = v.x, y = v.y, z = v.z;
+			absError->x =
+				gamma(3) * (std::abs(m.m[0][0] * v.x) + std::abs(m.m[0][1] * v.y) +
+					std::abs(m.m[0][2] * v.z));
+			absError->y =
+				gamma(3) * (std::abs(m.m[1][0] * v.x) + std::abs(m.m[1][1] * v.y) +
+					std::abs(m.m[1][2] * v.z));
+			absError->z =
+				gamma(3) * (std::abs(m.m[2][0] * v.x) + std::abs(m.m[2][1] * v.y) +
+					std::abs(m.m[2][2] * v.z));
+			return Vector3<T>(m.m[0][0] * x + m.m[0][1] * y + m.m[0][2] * z,
+				m.m[1][0] * x + m.m[1][1] * y + m.m[1][2] * z,
+				m.m[2][0] * x + m.m[2][1] * y + m.m[2][2] * z);
+		}
+		inline Ray operator()(const Ray &r, Vector3f *oError,
+			Vector3f *dError) const {
+			Point3f o = (*this)(r.o, oError);
+			Vector3f d = (*this)(r.d, dError);
+			Float tMax = r.tMax;
+			Float lengthSquared = d.LengthSquared();
+			if (lengthSquared > 0) {
+				Float dt = Dot(Abs(d), *oError) / lengthSquared;
+				o += d * dt;
+				//        tMax -= dt;
+			}
+			return Ray(o, d, tMax, r.time);
+		}
 		bool HasScale() const {
 			Float la2 = (*this)(Vector3f(1, 0, 0)).LengthSquared();
 			Float lb2 = (*this)(Vector3f(0, 1, 0)).LengthSquared();
@@ -188,7 +218,7 @@ namespace pbrs {
 			return Transform(Matrix4x4::Mul(m, t2.m),
 				Matrix4x4::Mul(t2.mInv, mInv));
 		}
-		bool SwapHandedness() const {
+		bool SwapsHandedness() const {
 			Float det= m.m[0][0] * (m.m[1][1] * m.m[2][2] - m.m[1][2] * m.m[2][1]) -
 				m.m[0][1] * (m.m[1][0] * m.m[2][2] - m.m[1][2] * m.m[2][0]) +
 				m.m[0][2] * (m.m[1][0] * m.m[2][1] - m.m[1][1] * m.m[2][0]);

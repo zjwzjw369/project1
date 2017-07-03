@@ -1,3 +1,11 @@
-﻿  transform.cpp
+﻿  sphere.cpp
+c:\users\user\desktop\project1\physically based rendering system\physically based rendering system\shapes\sphere.cpp(5): warning C4101: “phi”: 未引用的局部变量
+  shape.cpp
+  main.cpp
+  interaction.cpp
+  正在生成代码...
+  正在编译...
+  transform.cpp
+  正在生成代码...
   Physically based rendering system.vcxproj -> C:\Users\user\Desktop\project1\Physically based rendering system\Debug\Physically based rendering system.exe
   Physically based rendering system.vcxproj -> C:\Users\user\Desktop\project1\Physically based rendering system\Debug\Physically based rendering system.pdb (Partial PDB)
