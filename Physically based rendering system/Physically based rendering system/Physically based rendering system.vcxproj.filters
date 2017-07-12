@@ -36,6 +36,9 @@
     <ClInclude Include="shapes\sphere.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="core\efloat.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="core\main.cpp">

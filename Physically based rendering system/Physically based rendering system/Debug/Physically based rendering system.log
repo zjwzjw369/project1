@@ -1,11 +1,36 @@
 ﻿  sphere.cpp
+c:\users\user\desktop\project1\physically based rendering system\physically based rendering system\core\pbrs.h(73): warning C4244: “参数”: 从“double”转换到“float”，可能丢失数据
+c:\users\user\desktop\project1\physically based rendering system\physically based rendering system\core\pbrs.h(78): warning C4244: “参数”: 从“uint64_t”转换到“uint32_t”，可能丢失数据
+c:\users\user\desktop\project1\physically based rendering system\physically based rendering system\core\pbrs.h(84): warning C4244: “参数”: 从“double”转换到“float”，可能丢失数据
+c:\users\user\desktop\project1\physically based rendering system\physically based rendering system\core\pbrs.h(89): warning C4244: “参数”: 从“uint64_t”转换到“uint32_t”，可能丢失数据
 c:\users\user\desktop\project1\physically based rendering system\physically based rendering system\shapes\sphere.cpp(5): warning C4101: “phi”: 未引用的局部变量
-  shape.cpp
-  main.cpp
-  interaction.cpp
   正在生成代码...
   正在编译...
   transform.cpp
+c:\users\user\desktop\project1\physically based rendering system\physically based rendering system\core\pbrs.h(73): warning C4244: “参数”: 从“double”转换到“float”，可能丢失数据
+c:\users\user\desktop\project1\physically based rendering system\physically based rendering system\core\pbrs.h(78): warning C4244: “参数”: 从“uint64_t”转换到“uint32_t”，可能丢失数据
+c:\users\user\desktop\project1\physically based rendering system\physically based rendering system\core\pbrs.h(84): warning C4244: “参数”: 从“double”转换到“float”，可能丢失数据
+c:\users\user\desktop\project1\physically based rendering system\physically based rendering system\core\pbrs.h(89): warning C4244: “参数”: 从“uint64_t”转换到“uint32_t”，可能丢失数据
+  shape.cpp
+c:\users\user\desktop\project1\physically based rendering system\physically based rendering system\core\pbrs.h(73): warning C4244: “参数”: 从“double”转换到“float”，可能丢失数据
+c:\users\user\desktop\project1\physically based rendering system\physically based rendering system\core\pbrs.h(78): warning C4244: “参数”: 从“uint64_t”转换到“uint32_t”，可能丢失数据
+c:\users\user\desktop\project1\physically based rendering system\physically based rendering system\core\pbrs.h(84): warning C4244: “参数”: 从“double”转换到“float”，可能丢失数据
+c:\users\user\desktop\project1\physically based rendering system\physically based rendering system\core\pbrs.h(89): warning C4244: “参数”: 从“uint64_t”转换到“uint32_t”，可能丢失数据
+  main.cpp
+c:\users\user\desktop\project1\physically based rendering system\physically based rendering system\core\pbrs.h(73): warning C4244: “参数”: 从“double”转换到“float”，可能丢失数据
+c:\users\user\desktop\project1\physically based rendering system\physically based rendering system\core\pbrs.h(78): warning C4244: “参数”: 从“uint64_t”转换到“uint32_t”，可能丢失数据
+c:\users\user\desktop\project1\physically based rendering system\physically based rendering system\core\pbrs.h(84): warning C4244: “参数”: 从“double”转换到“float”，可能丢失数据
+c:\users\user\desktop\project1\physically based rendering system\physically based rendering system\core\pbrs.h(89): warning C4244: “参数”: 从“uint64_t”转换到“uint32_t”，可能丢失数据
+  interaction.cpp
+c:\users\user\desktop\project1\physically based rendering system\physically based rendering system\core\pbrs.h(73): warning C4244: “参数”: 从“double”转换到“float”，可能丢失数据
+c:\users\user\desktop\project1\physically based rendering system\physically based rendering system\core\pbrs.h(78): warning C4244: “参数”: 从“uint64_t”转换到“uint32_t”，可能丢失数据
+c:\users\user\desktop\project1\physically based rendering system\physically based rendering system\core\pbrs.h(84): warning C4244: “参数”: 从“double”转换到“float”，可能丢失数据
+c:\users\user\desktop\project1\physically based rendering system\physically based rendering system\core\pbrs.h(89): warning C4244: “参数”: 从“uint64_t”转换到“uint32_t”，可能丢失数据
+  geometry.cpp
+c:\users\user\desktop\project1\physically based rendering system\physically based rendering system\core\pbrs.h(73): warning C4244: “参数”: 从“double”转换到“float”，可能丢失数据
+c:\users\user\desktop\project1\physically based rendering system\physically based rendering system\core\pbrs.h(78): warning C4244: “参数”: 从“uint64_t”转换到“uint32_t”，可能丢失数据
+c:\users\user\desktop\project1\physically based rendering system\physically based rendering system\core\pbrs.h(84): warning C4244: “参数”: 从“double”转换到“float”，可能丢失数据
+c:\users\user\desktop\project1\physically based rendering system\physically based rendering system\core\pbrs.h(89): warning C4244: “参数”: 从“uint64_t”转换到“uint32_t”，可能丢失数据
   正在生成代码...
   Physically based rendering system.vcxproj -> C:\Users\user\Desktop\project1\Physically based rendering system\Debug\Physically based rendering system.exe
   Physically based rendering system.vcxproj -> C:\Users\user\Desktop\project1\Physically based rendering system\Debug\Physically based rendering system.pdb (Partial PDB)

@@ -19,6 +19,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="core\efloat.h" />
     <ClInclude Include="core\geometry.h" />
     <ClInclude Include="core\interaction.h" />
     <ClInclude Include="core\pbrs.h" />

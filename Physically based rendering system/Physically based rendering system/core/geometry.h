@@ -773,7 +773,7 @@ namespace pbrs {
 		Float tMax = (bounds[1 - dirIsNeg[0]].x - ray.o.x) * invDir.x;
 		Float tyMin = (bounds[dirIsNeg[1]].y - ray.o.y) * invDir.y;
 		Float tyMax = (bounds[1 - dirIsNeg[1]].y - ray.o.y) * invDir.y;
-
+		//为了消除运算产生的误差
 		tMax *= 1 + 2 * gamma(3);
 		tyMax *= 1 + 2 * gamma(3);
 		if (tMin > tyMax || tyMin > tMax) return false;
